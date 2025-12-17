@@ -11,11 +11,13 @@
             padding: 0;
             box-sizing: border-box;
         }
-       .main{
+
+        .main {
             width: 100%;
             height: 100%;
             text-align: center;
-            }
+        }
+
         body,
         html {
             width: 100%;
@@ -27,9 +29,29 @@
             height: 20vh;
             /* 使用vh单位，基于视口高度 */
             background-color: wheat;
+            background-image: url(src/pic/25.jpg);
+            background-size: cover;
+            background-position: 50% 50%;
             display: flex;
             justify-content: center;
             align-items: center;
+            position: relative;
+            /* 重要：添加这个 */
+
+        }
+
+        header::after {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            /* 覆盖整个header */
+            background-color: rgba(204, 140, 212, 0.196);
+            /* 半透明 */
+            pointer-events: none;
+            /* 允许点击穿透 */
         }
 
         #header_box {
@@ -43,10 +65,12 @@
         }
 
         .header_link {
+
+            font: bold large "Simsun", sans-serif;
             padding: 12px 24px;
             text-decoration: none;
-            color: red;
-            background-color: rgba(255, 255, 255, 0.2);
+            color: rgb(0, 0, 0);
+            background-color: rgba(124, 55, 181, 0.329);
             border-radius: 6px;
             transition: all 0.3s ease;
             letter-spacing: 2px;
@@ -101,19 +125,23 @@
             font-size: 12px;
             opacity: 0.8;
         }
+        #page1{
+            color: rgb(251, 37, 37);
+            background-color: rgba(136, 236, 115, 0.709);
+        }
     </style>
 </head>
 
 <body>
     <header>
         <div id="header_box">
-            <a href="#" class="header_link">首页</a>
-            <a href="#" class="header_link">b站</a>
-            <a href="#" class="header_link">关于个人</a>
+            <a href="#header_box" class="header_link" target="_self" id="page1">首页</a>
+            <a href="#" class="header_link" target="_blank">b站</a>
+            <a href="#" class="header_link" target="_blank">关于个人</a>
         </div>
     </header>
 
-      <p class="main">
+    <p class="main">
         content
     </p>
 
